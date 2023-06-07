@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
-    const navOption=<>
-    <li><Link to="/">Home</Link></li>
-        <li><Link >Instructor</Link></li>
+    const navOption = <>
+        <li><Link to="/">Home</Link></li>
+        <li><Link to="/instructor" >Instructor</Link></li>
         <li><Link >Classes</Link></li>
         <li><Link >Dashboard</Link></li>
     </>
 
     return (
-        <div className="navbar fixed z-10 bg-opacity-20 bg-black text-white max-w-screen-lg">
+        <div className="navbar bg-orange-400 max-w-screen-lg">
             <div className="navbar-start">
                 <div className="dropdown text-black">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
