@@ -14,7 +14,7 @@ const TopSliderSection = () => {
         })
     },[])
     return (
-            <Carousel>
+            <Carousel showThumbs={false}>
                
                 {
                     top.map(item=><Top key={item.id}item={item}></Top>)
