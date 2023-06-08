@@ -5,7 +5,7 @@ import Title from '../Tite/Title';
 const PopularClassedSection = () => {
     const[info,setInfo]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/classes')
+        fetch(`http://localhost:5000/classes?limit=${6}`)
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
