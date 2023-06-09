@@ -7,6 +7,7 @@ const Instructor = () => {
     const[instructor]=useInstructor();
     return (
         <section >
+            
             <Title heading="Our honorable instructor"></Title>
             <div className='grid md:grid-cols-2 gap-5'>
             {
