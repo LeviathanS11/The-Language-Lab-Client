@@ -1,11 +1,19 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
 import Swal from 'sweetalert2';
 import GoogleSignIn from './GoogleSignIn';
+import { FaEye } from "react-icons/fa";
 
 const Login = () => {
+
+    const[isVisible,setVisible]=useState(false)
+
+    const handleHideShow=()=>{
+        setVisible(!isVisible)
+    }
+
     const{signIn}=useContext(AuthContext);
     const navigate=useNavigate();
     const location=useLocation();
@@ -54,8 +62,9 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="password" name="password" placeholder="password" className="input input-bordered" required/>
+                                <input type={isVisible? "text":"password"} name="password" placeholder="password" className="input input-bordered" required/>
                             </div>
+                            <button className='relative left-48 bottom-10' onClick={handleHideShow}> <FaEye></FaEye></button>
                             <div className="form-control mt-6">
                                 <input className="btn bg-orange-400" type="submit" value="Login" />
                             </div>
