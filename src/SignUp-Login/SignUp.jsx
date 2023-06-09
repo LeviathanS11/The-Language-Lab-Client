@@ -2,13 +2,14 @@ import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
     const [error,setError]=useState("");
+    const navigate=useNavigate();
 
     const onSubmit = data => {
         if(data.password !== data.confirmPassword){
@@ -32,6 +33,7 @@ const SignUp = () => {
                             showConfirmButton: false,
                             timer: 1500
                         });
+                        navigate('/');
                     })
                     .catch(error => console.log(error))
             })
