@@ -7,12 +7,14 @@ import Instructor from "../pages/Instructor/Instructor";
 import AllClass from "../pages/Class/AllClass";
 import SignUp from "../SignUp-Login/SignUp";
 import Login from "../SignUp-Login/Login";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 
  export const router = createBrowserRouter([
     {
         path:"/",
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
           {
             path:'/',

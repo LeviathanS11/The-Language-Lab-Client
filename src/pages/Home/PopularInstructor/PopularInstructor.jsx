@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react';
 import PopularCard from './PopularCard';
 import Title from '../Tite/Title';
 
+
+
 const PopularInstructor = () => {
-   
+
     const [items, setItems] = useState([])
     useEffect(() => {
         fetch(`http://localhost:5000/PInstructor?limit=${6}`)
@@ -16,12 +18,15 @@ const PopularInstructor = () => {
     return (
         <>
             <Title heading="popular instructors"></Title>
+
             <div className='grid md:grid-cols-3 gap-5'>
-            {
-                items.map(item => <PopularCard key={item.id} item={item}></PopularCard>)
-            }
+
+        {
+            items.map(item => <PopularCard key={item.id} item={item}></PopularCard>)
+        }
             </div>
         </>
+        
     )
 };
 
