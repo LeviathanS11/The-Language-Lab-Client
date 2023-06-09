@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
@@ -8,13 +8,19 @@ import Swal from 'sweetalert2';
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
+    const [error,setError]=useState("");
 
     const onSubmit = data => {
+        if(data.password !== data.confirmPassword){
+            setError("password does not match")
+            return;
+        }
         console.log(data)
         createUser(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
                 console.log(loggedUser)
+                setError("")
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
                         console.log('user profile info updated')
@@ -76,6 +82,7 @@ const SignUp = () => {
                                 </label>
                                 <input type="password" {...register("confirmPassword",{required:true})} name="confirmPassword" placeholder="Confirm-password" className="input input-bordered" />
                                 {errors.confirmPassword?.type ==='required' && <p  className='text-red-600'>confirm password required</p>}
+                                <p className='text-red-600'>{error}</p>
                             </div>
 
                             <div className="form-control">
@@ -84,6 +91,8 @@ const SignUp = () => {
                                 </label>
                                 <input type="text"  {...register("photoURL")} placeholder="Photo URL" className="input input-bordered" />
                             </div>
+
+                            
 
                             <div className="form-control mt-6">
                                 <input className="btn bg-orange-400" type="submit" value="Register" />
