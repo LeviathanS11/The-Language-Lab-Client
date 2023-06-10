@@ -8,7 +8,7 @@ const PageAnimation = () => {
         <h1 className='text-3xl font-extrabold text-orange-400'>Welcome</h1>
       </Slide>
       <AttentionSeeker effect='flash'>
-      <p className='font-semibold'>Here You Will Find The Suitable Course For You</p>
+      <p className='font-semibold text-2xl'>Here You Will Find The Suitable Course For You</p>
       </AttentionSeeker>
       
     </div>

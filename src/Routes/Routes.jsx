@@ -8,6 +8,7 @@ import AllClass from "../pages/Class/AllClass";
 import SignUp from "../SignUp-Login/SignUp";
 import Login from "../SignUp-Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import PrivateRoutes from "./PrivateRoutes";
 
 
  export const router = createBrowserRouter([
@@ -26,7 +27,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
           },
           {
             path:'/all',
-            element:<AllClass></AllClass>
+            element:<PrivateRoutes><AllClass></AllClass></PrivateRoutes>
           },
           {
             path:'/signup',
