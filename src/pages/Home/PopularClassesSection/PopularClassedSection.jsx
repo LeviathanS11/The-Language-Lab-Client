@@ -8,7 +8,6 @@ const PopularClassedSection = () => {
         fetch(`http://localhost:5000/classes?limit=${6}`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
             setInfo(data)
         })
     },[])

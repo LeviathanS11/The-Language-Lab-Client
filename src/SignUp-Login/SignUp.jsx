@@ -4,15 +4,16 @@ import { AuthContext } from '../Provider/AuthProvider';
 import { Helmet } from 'react-helmet-async';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import GoogleSignIn from './GoogleSignIn';
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext);
-    const [error,setError]=useState("");
-    const navigate=useNavigate();
+    const [error, setError] = useState("");
+    const navigate = useNavigate();
 
     const onSubmit = data => {
-        if(data.password !== data.confirmPassword){
+        if (data.password !== data.confirmPassword) {
             setError("password does not match")
             return;
         }
@@ -24,15 +25,27 @@ const SignUp = () => {
                 setError("")
                 updateUserProfile(data.name, data.photoURL)
                     .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
+                        const saveUser={name:data.name,email:data.email}
+                        fetch('http://localhost:5000/users',{
+                            method:'POST',
+                            headers:{
+                                'content-type':'application/json'
+                            },
+                            body:JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                }
+                            })
                         navigate('/');
                     })
                     .catch(error => console.log(error))
@@ -59,8 +72,8 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" {...register("email",{required:true})} name="email" placeholder="email" className="input input-bordered" />
-                                {errors.email?.type === 'required'&& <p  className='text-red-600'>email required</p>}
+                                <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
+                                {errors.email?.type === 'required' && <p className='text-red-600'>email required</p>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -82,8 +95,8 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">Confirm-Password</span>
                                 </label>
-                                <input type="password" {...register("confirmPassword",{required:true})} name="confirmPassword" placeholder="Confirm-password" className="input input-bordered" />
-                                {errors.confirmPassword?.type ==='required' && <p  className='text-red-600'>confirm password required</p>}
+                                <input type="password" {...register("confirmPassword", { required: true })} name="confirmPassword" placeholder="Confirm-password" className="input input-bordered" />
+                                {errors.confirmPassword?.type === 'required' && <p className='text-red-600'>confirm password required</p>}
                                 <p className='text-red-600'>{error}</p>
                             </div>
 
@@ -94,7 +107,7 @@ const SignUp = () => {
                                 <input type="text"  {...register("photoURL")} placeholder="Photo URL" className="input input-bordered" />
                             </div>
 
-                            
+
 
                             <div className="form-control mt-6">
                                 <input className="btn bg-orange-400" type="submit" value="Register" />
@@ -103,6 +116,7 @@ const SignUp = () => {
                         <div className="text-center">
                             <p>Already have an account!!! <small className='text-orange-400 font-bold'><Link to='/login'>Login Now</Link></small></p>
                         </div>
+                        <GoogleSignIn></GoogleSignIn>
                     </div>
                 </div>
             </div>

@@ -9,7 +9,6 @@ const TopSliderSection = () => {
         fetch("http://localhost:5000/top")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setTop(data)
             })
     }, [])

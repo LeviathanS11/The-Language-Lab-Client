@@ -29,7 +29,7 @@ import MySelectedClass from "../pages/DashBoard/MySelctedClass/MySelectedClass";
           },
           {
             path:'/all',
-            element:<PrivateRoutes><AllClass></AllClass></PrivateRoutes>
+            element:<AllClass></AllClass>
           },
           {
             path:'/signup',
@@ -44,7 +44,7 @@ import MySelectedClass from "../pages/DashBoard/MySelctedClass/MySelectedClass";
     },
     {
       path:"dashboard",
-      element:<DashBoard></DashBoard>,
+      element:<PrivateRoutes><DashBoard></DashBoard></PrivateRoutes>,
       children:[
         {
           path:"myclass",

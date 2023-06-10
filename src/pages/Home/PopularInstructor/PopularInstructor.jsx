@@ -11,7 +11,6 @@ const PopularInstructor = () => {
         fetch(`http://localhost:5000/PInstructor?limit=${6}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setItems(data)
             })
     }, [])
