@@ -9,6 +9,8 @@ import SignUp from "../SignUp-Login/SignUp";
 import Login from "../SignUp-Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
+import DashBoard from "../Layout/DashBoard";
+import MySelectedClass from "../pages/DashBoard/MySelctedClass/MySelectedClass";
 
 
  export const router = createBrowserRouter([
@@ -39,5 +41,15 @@ import PrivateRoutes from "./PrivateRoutes";
           }
           
         ]
+    },
+    {
+      path:"dashboard",
+      element:<DashBoard></DashBoard>,
+      children:[
+        {
+          path:"myclass",
+          element:<MySelectedClass></MySelectedClass>
+        }
+      ]
     }
   ])

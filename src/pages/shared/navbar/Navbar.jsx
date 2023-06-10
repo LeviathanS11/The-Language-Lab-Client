@@ -11,8 +11,9 @@ const Navbar = () => {
         <li><Link to="/instructor" >Instructor</Link></li>
         <li><Link to="/all">Classes</Link></li>
         {
-            user ? <button className='btn' onClick={logOut}>logout</button> : <li><Link to="/login">Login</Link></li>
+            user ? <li><Link onClick={logOut}>Logout</Link></li> : <li><Link to="/login">Login</Link></li>
         }
+        <li><Link to="/dashboard/myclass">MyClass</Link></li>
     </>
     return (
         <>
