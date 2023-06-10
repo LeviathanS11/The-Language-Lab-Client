@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const useClasses = () => {
     const[info,setInfo]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/class')
+        fetch('https://assignment-12-server-jade.vercel.app/class')
         .then(res=>res.json())
         .then(data=>{
             setInfo(data)

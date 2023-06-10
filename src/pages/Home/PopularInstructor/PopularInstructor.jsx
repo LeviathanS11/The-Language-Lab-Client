@@ -8,7 +8,7 @@ const PopularInstructor = () => {
 
     const [items, setItems] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/PInstructor?limit=${6}`)
+        fetch(`https://assignment-12-server-jade.vercel.app/PInstructor?limit=${6}`)
             .then(res => res.json())
             .then(data => {
                 setItems(data)

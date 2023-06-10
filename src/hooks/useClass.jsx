@@ -7,7 +7,7 @@ const useClass = () => {
     const{data:classes=[],refetch}=useQuery({
         queryKey:['class',user?.email],
         queryFn:async()=>{
-            const response=await fetch(`http://localhost:5000/myclass?email=${user?.email}`)
+            const response=await fetch(`https://assignment-12-server-jade.vercel.app/myclass?email=${user?.email}`)
             return response.json();
         }
     })

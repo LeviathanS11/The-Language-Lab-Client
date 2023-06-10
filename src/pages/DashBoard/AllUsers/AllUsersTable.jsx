@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 const AllUsersTable = ({ item,index ,refetch}) => {
     const {name,email,_id } = item;
     const handleMakeAdmin=(id)=>{
-        fetch(`http://localhost:5000/users/admin/${id}`,{
+        fetch(`https://assignment-12-server-jade.vercel.app/users/admin/${id}`,{
             method:'PATCH'
         })
         .then(res=>res.json())

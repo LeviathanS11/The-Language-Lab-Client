@@ -35,7 +35,7 @@ const AllClassCard = ({ item }) => {
             if(user){
                 setDisble(true)
                 const addClass={classId:_id,image,name,available_seats,price,email:user.email}
-                fetch('http://localhost:5000/myclass',{
+                fetch('https://assignment-12-server-jade.vercel.app/myclass',{
                     method:'POST',
                     headers:{
                         'content-type': 'application/json'

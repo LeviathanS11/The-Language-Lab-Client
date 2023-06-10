@@ -6,7 +6,7 @@ import Top from '../Top/Top';
 const TopSliderSection = () => {
     const [top, setTop] = useState([])
     useEffect(() => {
-        fetch("http://localhost:5000/top")
+        fetch("https://assignment-12-server-jade.vercel.app/top")
             .then(res => res.json())
             .then(data => {
                 setTop(data)

@@ -5,7 +5,7 @@ import Title from '../Tite/Title';
 const PopularClassedSection = () => {
     const[info,setInfo]=useState([])
     useEffect(()=>{
-        fetch(`http://localhost:5000/classes?limit=${6}`)
+        fetch(`https://assignment-12-server-jade.vercel.app/classes?limit=${6}`)
         .then(res=>res.json())
         .then(data=>{
             setInfo(data)
