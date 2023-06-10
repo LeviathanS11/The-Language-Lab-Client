@@ -11,6 +11,7 @@ import ErrorPage from "../ErrorPage/ErrorPage";
 import PrivateRoutes from "./PrivateRoutes";
 import DashBoard from "../Layout/DashBoard";
 import MySelectedClass from "../pages/DashBoard/MySelctedClass/MySelectedClass";
+import AllUsers from "../pages/DashBoard/AllUsers/AllUsers";
 
 
  export const router = createBrowserRouter([
@@ -49,6 +50,10 @@ import MySelectedClass from "../pages/DashBoard/MySelctedClass/MySelectedClass";
         {
           path:"myclass",
           element:<MySelectedClass></MySelectedClass>
+        },
+        {
+          path:"manageUsers",
+          element:<AllUsers></AllUsers>
         }
       ]
     }
