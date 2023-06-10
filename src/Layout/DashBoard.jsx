@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../pages/shared/navbar/Navbar';
 import Footer from '../pages/shared/Footer/Footer';
 
 import { FaAddressBook, FaBook, FaWallet } from "react-icons/fa";
+import useAdmin from '../hooks/useAdmin';
 
 const DashBoard = () => {
-  const isAdmin = true;
+
   return (
     <div>
       <Navbar></Navbar>
@@ -22,16 +23,10 @@ const DashBoard = () => {
           <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
-            {
-              isAdmin ? <>
-                <li><Link to="/dashboard/manageClasses">Manage Classes</Link></li>        
-                <li><Link to="/dashboard/manageUsers">Manage Users</Link></li>        
-              </> : <>
-                <li><Link to="/dashboard/myclass"><FaAddressBook></FaAddressBook>My Classes</Link></li>
-                <li><Link><FaBook></FaBook>My Enrolled Classes</Link></li>
-                <li><Link><FaWallet></FaWallet>Payment History</Link></li>
-              </>
-            }
+            <li><Link to="/dashboard/manageUsers">Manage Users</Link></li>
+            <li><Link to="/dashboard/myclass"><FaAddressBook></FaAddressBook>My Classes</Link></li>
+            <li><Link><FaBook></FaBook>My Enrolled Classes</Link></li>
+            <li><Link><FaWallet></FaWallet>Payment History</Link></li>
 
           </ul>
 

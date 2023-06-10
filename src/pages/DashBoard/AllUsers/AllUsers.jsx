@@ -16,6 +16,7 @@ const AllUsers = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+                
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -51,6 +52,7 @@ const AllUsers = () => {
         <div className="overflow-x-auto">
             <table className="table table-zebra w-full">
                 {/* head */}
+                
                 <thead>
                     <tr>
                         <th>#</th>

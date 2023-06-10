@@ -4,8 +4,10 @@ import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
 import useClass from '../../../hooks/useClass';
+import { useQuery } from '@tanstack/react-query';
 
 const Navbar = () => {
+    
     const [classes]=useClass();
     const { user, logOut } = useContext(AuthContext)
     const navOption = <>
