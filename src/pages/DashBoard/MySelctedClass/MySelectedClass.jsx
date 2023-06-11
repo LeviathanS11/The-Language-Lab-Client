@@ -3,11 +3,11 @@ import useClass from '../../../hooks/useClass';
 import SelectedClassCard from './SelectedClassCard';
 
 const MySelectedClass = () => {
-    const [classes]=useClass();
+    const [classes,refetch]=useClass();
     return (
         <div className='grid grid-cols-2 gap-5'>
            {
-            classes.map(item=><SelectedClassCard key={item._id}item={item}></SelectedClassCard>)
+            classes.map(item=><SelectedClassCard key={item._id}item={item}refetch={refetch}></SelectedClassCard>)
            }
         </div>
     );

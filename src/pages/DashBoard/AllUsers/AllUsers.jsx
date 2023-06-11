@@ -16,7 +16,7 @@ const AllUsers = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
-                
+
                 if (data.modifiedCount) {
                     refetch();
                     Swal.fire({
@@ -52,7 +52,7 @@ const AllUsers = () => {
         <div className="overflow-x-auto">
             <table className="table table-zebra w-full">
                 {/* head */}
-                
+
                 <thead>
                     <tr>
                         <th>#</th>
@@ -74,8 +74,6 @@ const AllUsers = () => {
                             <td>{user.role === 'instructor' ? 'instructor' :
                                 <button onClick={() => handleMakeinstructor(user)} className="btn btn-ghost bg-orange-600  text-white"><FaUserShield></FaUserShield></button>
                             }</td>
-                            <td>
-                                <button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                         </tr>)
                     }
 
