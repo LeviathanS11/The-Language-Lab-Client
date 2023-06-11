@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 import Navbar from '../pages/shared/navbar/Navbar';
 import Footer from '../pages/shared/Footer/Footer';
 
-import { FaAddressBook, FaBook, FaWallet,FaHouseUser } from "react-icons/fa";
+import { FaAddressBook, FaBook, FaWallet,FaHouseUser ,FaPlusCircle} from "react-icons/fa";
 import useAdmin from '../hooks/useAdmin';
 
 const DashBoard = () => {
@@ -24,6 +24,7 @@ const DashBoard = () => {
           <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
             {/* Sidebar content here */}
             <li><Link to="/dashboard/manageUsers"> <FaHouseUser></FaHouseUser> Manage Users</Link></li>
+            <li><Link to="/dashboard/addClass"><FaPlusCircle></FaPlusCircle>  Add Class</Link></li>
             <li><Link to="/dashboard/myclass"><FaAddressBook></FaAddressBook>My Classes</Link></li>
             <li><Link><FaBook></FaBook>My Enrolled Classes</Link></li>
             <li><Link><FaWallet></FaWallet>Payment History</Link></li>
