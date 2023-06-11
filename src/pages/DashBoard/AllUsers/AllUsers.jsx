@@ -60,7 +60,6 @@ const AllUsers = () => {
                         <th>Email</th>
                         <th>Role(Admin)</th>
                         <th>Role(Instructor)</th>
-                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>

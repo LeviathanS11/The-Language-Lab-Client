@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Provider/AuthProvider';
 import { FaUserCircle } from "react-icons/fa";
 import { Helmet } from 'react-helmet-async';
-import useClass from '../../../hooks/useClass';
-import { useQuery } from '@tanstack/react-query';
+
 
 const Navbar = () => {
-    
-    const [classes]=useClass();
     const { user, logOut } = useContext(AuthContext)
+
+   
     const navOption = <>
         <li><Link to="/">Home</Link></li>
         <li><Link to="/instructor" >Instructor</Link></li>
@@ -18,6 +17,7 @@ const Navbar = () => {
             user ? <li><Link onClick={logOut}>Logout</Link></li> : <li><Link to="/login">Login</Link></li>
         }
         <li><Link to="/dashboard/myclass">Dashboard</Link></li>
+        
     </>
     return (
         <>
